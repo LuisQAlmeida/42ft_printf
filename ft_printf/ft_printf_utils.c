@@ -14,12 +14,12 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-void	ft_putchar(char c)
+int	ft_putchar_adptd(const char c)
 {
-	write(1, &c, 1);
+	return(write(1, &c, 1));
 }
 
-void	ft_putstr(char *s)
+int	ft_putstr_adptd(const char *s)
 {
 	int	i;
 
@@ -31,4 +31,5 @@ void	ft_putstr(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
+	return (i);
 }

@@ -25,11 +25,24 @@ int	ft_putstr_adptd(const char *s)
 
 	i = 0;
 	if (!s)
-		return ;
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (s[i])
 	{
 		write(1, &s[i], 1);
 		i++;
 	}
 	return (i);
+}
+
+int	ft_itoa_base_adptd(const char *s, char c)
+{
+
+}
+
+int	ft_putaddress(cons char *s)
+{
+
 }

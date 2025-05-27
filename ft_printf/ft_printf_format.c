@@ -19,7 +19,7 @@ int	ft_print_format(const char c, va_list arg_list)
 	else if (c == 'X')
 		print_len += ft_itoa_base_adptd(va_arg(arg_list, unsigned int), X);
 	else if (c == 'p')
-		print_len += ft_print_ptr(va_arg(arg_list, ksdfhksdgskdgfnsdkfgndkgndkfjgndkbn), p)
+		print_len += ft_putaddress((unsigned long)va_arg(arg_list, void *))
 	else
 		print_len += ft_putchar_adptd(c)
 	return (print_len);

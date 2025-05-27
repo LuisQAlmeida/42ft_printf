@@ -2,12 +2,6 @@
 #include "ft_printf.h"
 #include <unistd.h>
 #include <stdarg.h>
-#include <stdio.h>
-
-int     ft_putchar_adptd(const char c)
-{
-        return(write(1, &c, 1));
-}
 
 int	ft_printf(const char *format, ...)
 {
@@ -16,6 +10,8 @@ int	ft_printf(const char *format, ...)
 
 	print_len = 0;
 	va_start(arg_list, format);
+	if (!format)
+		return (-1);
 	while (*format)
 	{
 		if (*format != '%')
@@ -29,13 +25,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(arg_list);
 	return (print_len);
-}
-
-int	main(void)
-{
-	int	return_val;
-
-	return_val = ft_printf("Hello\n");
-	printf("%d\n", return_val);
-	return (0);
 }

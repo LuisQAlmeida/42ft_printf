@@ -19,8 +19,8 @@ int	ft_print_format(const char c, va_list arg_list)
 	else if (c == 'X')
 		print_len += ft_putnbr_base_adptd(va_arg(arg_list, unsigned int), 'X');
 	else if (c == 'p')
-		print_len += ft_putnbr_base_adptd((unsigned long)va_arg(arg_list, void *), 'p')
+		print_len += ft_putnbr_base_adptd((unsigned long)va_arg(arg_list, void *), 'p');
 	else
-		print_len += ft_putchar_adptd(c)
+		print_len += ft_putchar_adptd(c);
 	return (print_len);
 }

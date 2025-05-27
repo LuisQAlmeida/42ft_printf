@@ -24,7 +24,7 @@ int	ft_putstr_adptd(const char *s)
 	return (i);
 }
 
-int	ft_putnbr_base_adptd(const char *s, char c)
+int	ft_putnbr_base_adptd(const char *s, const char c)
 {
 
 }

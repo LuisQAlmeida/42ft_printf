@@ -11,15 +11,15 @@ int	ft_print_format(const char c, va_list arg_list)
 	else if (c == 's')
 		print_len += ft_putstr_adptd(va_arg(arg_list, char *));
 	else if (c == 'd' || c == 'i')
-		print_len += ft_putnbr_base_adptd(va_arg(arg_list, int), i);
+		print_len += ft_putnbr_base_adptd(va_arg(arg_list, int), 'i');
 	else if (c == 'u')
-		print_len += ft_putnbr_base_adptd(va_arg(arg_list, unsigned int), u);
+		print_len += ft_putnbr_base_adptd(va_arg(arg_list, unsigned int), 'u');
 	else if (c == 'x')
-		print_len += ft_putnbr_base_adptd(va_arg(arg_list, unsigned int), x);
+		print_len += ft_putnbr_base_adptd(va_arg(arg_list, unsigned int), 'x');
 	else if (c == 'X')
-		print_len += ft_putnbr_base_adptd(va_arg(arg_list, unsigned int), X);
+		print_len += ft_putnbr_base_adptd(va_arg(arg_list, unsigned int), 'X');
 	else if (c == 'p')
-		print_len += ft_putnbr_base_adptd((unsigned long)va_arg(arg_list, void *))
+		print_len += ft_putnbr_base_adptd((unsigned long)va_arg(arg_list, void *), 'p')
 	else
 		print_len += ft_putchar_adptd(c)
 	return (print_len);

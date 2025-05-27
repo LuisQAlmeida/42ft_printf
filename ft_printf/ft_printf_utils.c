@@ -37,12 +37,7 @@ int	ft_putstr_adptd(const char *s)
 	return (i);
 }
 
-int	ft_itoa_base_adptd(const char *s, char c)
-{
-
-}
-
-int	ft_putaddress(cons char *s)
+int	ft_putnbr_base_adptd(const char *s, char c)
 {
 
 }

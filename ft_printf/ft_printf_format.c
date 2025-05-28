@@ -18,7 +18,7 @@ int	ft_print_format(const char c, va_list arg_list)
 	else if (c == 'X')
 		print_len += ft_putnum(va_arg(arg_list, unsigned int), 'X');
 	else if (c == 'p')
-		print_len += ft_putnum((unsigned long)va_arg(arg_list, void *), 'p');
+		print_len += ft_putnum((unsigned int)va_arg(arg_list, void *), 'p');
 	else if (c == '%')
 		print_len += ft_putchar_a('%');
 	else

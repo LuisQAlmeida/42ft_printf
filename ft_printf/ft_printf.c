@@ -13,7 +13,7 @@ int	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format != '%')
-			print_len += ft_putchar_adptd(*format);
+			print_len += ft_putchar_a(*format);
 		else
 		{
 			format++;

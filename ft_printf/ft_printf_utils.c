@@ -30,6 +30,9 @@ int	ft_putnbr_base_adptd(unsigned long long num, char format)
 	int		base_len;
 	int		print_len = 0;
 	if (format == 'p')
+		void *ptr = va_arg(arg_list, void *);
+		if (!ptr)
+			print_len += ft_putstr_adptd("(nil)");
 		print_len += ft_putstr_adptd("0x");
 	if (format == 'X')
 		base = "0123456789ABCDEF";

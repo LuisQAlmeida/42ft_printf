@@ -11,13 +11,10 @@ int	ft_printf(const char *format, ...)
 		return (-1);
 	while (*format)
 	{
-		if (*format != '%')
-			print_len += ft_putchar_a(*format);
+		if (*format == '%' && *(++format))
+			print_len += ft_printf_format(arg_list, *format);
 		else
-		{
-			format++;
-			print_len += ft_print_format(*format, arg_list);
-		}
+			print_len += ft_putchar_a(*format);
 		format++;
 	}
 	va_end(arg_list);

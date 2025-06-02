@@ -32,7 +32,7 @@ int	ft_putnum(unsigned long long num, char c)
 		base_len = 10;
 	else
 		base_len = 16;
-	if (num >= base_len)
+	if (num >= (unsigned int)base_len)
 		print_len += ft_putnum(num / base_len, c);
 	print_len += ft_putchar_a(base[num % base_len]);
 	return (print_len);

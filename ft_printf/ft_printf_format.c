@@ -6,7 +6,7 @@ static int	print_int(va_list arg_list)
 	int					print_len;
 	unsigned long long	num;
 
-	n = va_arg(args, int);
+	n = va_arg(arg_list, int);
 	print_len = 0;
 	if (n < 0)
 	{
@@ -24,7 +24,7 @@ static int	print_ptr(va_list arg_list)
 	void	*ptr;
 
 	print_len = 0;
-	ptr = va_arg(args, void *);
+	ptr = va_arg(arg_list, void *);
 	if (!ptr)
 		return (ft_putstr_a("(nil)"));
 	print_len += ft_putstr_a("0x");

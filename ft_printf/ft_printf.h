@@ -8,6 +8,6 @@
 int	ft_printf(const char *format, ...);
 int	ft_putchar_a(const char c);
 int	ft_putstr_a(const char *s);
-int	ft_putnum(const char *s, const char c);
+int	ft_putnum(long long nbr, const char c);
 int	ft_print_format(const char c, va_list arg_list);
 #endif

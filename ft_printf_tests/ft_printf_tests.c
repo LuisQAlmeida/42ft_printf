@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <limits.h>
 #include "ft_printf.h"
 
 int	main(void)
@@ -10,9 +11,11 @@ int	main(void)
 	ft_printf("Character: %c\n", 'A');
 
 	// Null string test
+	char	*str;
+	str = NULL;
 	printf("Test: Null string\n");
-	printf("This is a null string: %s\n", NULL);
-	ft_printf("This is a null string: %s\n", NULL);
+	printf("This is a null string: %s\n", str);
+	ft_printf("This is a null string: %s\n", str);
 
 	// Empty string test
 	printf("Test: Empty string\n");
@@ -26,8 +29,8 @@ int	main(void)
 
 	// Minimum integer test
 	printf("Test: Minimum integer\n");
-	printf("Minimum integer: %d\n", -2147483648);
-	ft_printf("Minimum integer: %d\n", -2147483648);
+	printf("Minimum integer: %d\n", INT_MIN);
+	ft_printf("Minimum integer: %d\n", INT_MIN);
 
 	// Maximum integer test
 	printf("Test: Maximum integer\n");
@@ -65,14 +68,18 @@ int	main(void)
 	printf("Mixed: %d, %s, %c, %x\n", 42, "hello", 'A', 255);
 	ft_printf("Mixed: %d, %s, %c, %x\n", 42, "hello", 'A', 255);
 
+	/*
 	// Edge cases with invalid specifiers
 	printf("Test: Invalid specifier\n");
 	printf("Invalid specifier: %q\n");
 	ft_printf("Invalid specifier: %q\n");
+	*/
 
+	/*
 	printf("Test: Missing specifier\n");
 	printf("Missing specifier: %\n");
 	ft_printf("Missing specifier: %\n");
+	*/
 
 	return (0);
 }

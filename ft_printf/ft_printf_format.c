@@ -45,5 +45,5 @@ int	ft_print_format(va_list arg_list, char c)
 		return (print_ptr(arg_list));
 	if (c == '%')
 		return (ft_putchar_a('%'));
-	return (ft_putchar_a(c));
+	return (0);
 }

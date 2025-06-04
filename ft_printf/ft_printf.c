@@ -1,5 +1,19 @@
 #include "ft_printf.h"
 
+static int	ft_error(char c)
+{
+	char	*formats;
+
+	formats = "csiduxXp%";
+	while (*formats)
+	{
+		if (c == *formats)
+			return (0);
+		formats++;
+	}
+	return (1);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	int		print_len;
@@ -11,8 +25,15 @@ int	ft_printf(const char *format, ...)
 		return (-1);
 	while (*format)
 	{
-		if (*format == '%' && *(++format))
+		if (*format == '%')
+		{
+			if (ft_error(*(++format)))
+			{
+				ft_putstr_a("Error: Invalid Format\n");
+				return (-2);
+			}
 			print_len += ft_print_format(arg_list, *format);
+		}
 		else
 			print_len += ft_putchar_a(*format);
 		format++;

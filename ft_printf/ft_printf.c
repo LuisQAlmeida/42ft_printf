@@ -20,9 +20,9 @@ int	ft_printf(const char *format, ...)
 	va_list	arg_list;
 
 	print_len = 0;
-	va_start(arg_list, format);
 	if (!format)
 		return (-1);
+	va_start(arg_list, format);
 	while (*format)
 	{
 		if (*format == '%')
@@ -30,6 +30,7 @@ int	ft_printf(const char *format, ...)
 			if (ft_error(*(++format)))
 			{
 				ft_putstr_a("Error: Invalid Format\n");
+				va_end(arg_list);
 				return (-2);
 			}
 			print_len += ft_print_format(arg_list, *format);

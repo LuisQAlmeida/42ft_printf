@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/LuisQAlmeida/42ft_printf/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/LuisQAlmeida/42ft_printf/actions/workflows/ci.yml)
 
+> Part of my [42 Common Core portfolio](https://github.com/LuisQAlmeida/42Portfolio).
+
 A C implementation of a focused subset of `printf()`, developed as part of the
 42 curriculum and maintained with automated regression testing and continuous
 integration.

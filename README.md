@@ -111,6 +111,7 @@ correctly invalidate dependent objects.
 │   ├── tests.c
 │   └── run_tests.sh
 ├── .gitignore
+├── Doxyfile
 ├── LICENSE
 └── README.md
 ```
@@ -260,6 +261,11 @@ rather than duplicating build commands or regression cases in workflow YAML.
 After validation, CI also verifies that the repository remains clean and that
 no generated tracked, untracked, or ignored build artefacts remain.
 
+A separate `CI / documentation` job validates the repository-controlled
+Doxygen API documentation. It generates the HTML documentation from
+`Doxyfile`, checks the expected output and representative maintained API
+symbols, removes the generated files, and verifies repository cleanliness.
+
 Current maintained validation contract:
 
 | Validation | Result |
@@ -320,6 +326,60 @@ a NULL `%p` argument.
 NULL representations used by standard-library implementations are
 platform-dependent, so these textual representations should not be interpreted
 as universal requirements of standard `printf()`.
+
+## Doxygen Documentation
+
+The maintained interface in `ft_printf/ft_printf.h` is documented using
+Doxygen-style comments.
+
+The documentation covers:
+
+- the maintained module scope;
+- the public `ft_printf()` entry point;
+- the format-string and variadic interface;
+- supported conversion specifiers;
+- return and error behaviour;
+- output behaviour;
+- the support functions exposed by the maintained header.
+
+The documentation describes this project's actual maintained implementation,
+not the complete behaviour of the C standard library `printf()` function.
+
+The repository tracks a canonical `Doxyfile`, so documentation generation does
+not depend on a locally generated configuration.
+
+Install Doxygen on Ubuntu if required:
+
+```sh
+sudo apt install doxygen
+```
+
+Generate the documentation from the repository root with:
+
+```sh
+doxygen Doxyfile
+```
+
+Generated HTML is written to:
+
+```text
+docs/html/
+```
+
+The main entry point is:
+
+```text
+docs/html/index.html
+```
+
+Generated HTML is intentionally ignored by Git. The repository-controlled
+`Doxyfile` remains tracked as part of the maintained documentation contract.
+
+Doxygen warnings are treated as validation failures. The dedicated
+`CI / documentation` job generates the documentation, verifies representative
+API entries, removes the generated files, and checks repository cleanliness.
+
+---
 
 ## Historical baseline
 

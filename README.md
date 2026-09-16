@@ -8,9 +8,10 @@ A C implementation of a focused subset of `printf()`, developed as part of the
 42 curriculum and maintained with automated regression testing and continuous
 integration.
 
+> **42 Common Core:** 100/100 · Subject v12.1 · [Academic record & evaluation](docs/academic/README.md)
+
 ## Table of Contents
 
-- [Academic Context](#academic-context)
 - [Overview](#overview)
 - [Supported conversions](#supported-conversions)
 - [Implementation](#implementation)
@@ -25,32 +26,6 @@ integration.
 - [Historical baseline](#historical-baseline)
 - [License](#license)
 
-## Academic Context
-
-| | |
-| --- | --- |
-| **Curriculum** | 42 Common Core |
-| **Project** | `ft_printf` |
-| **Subject reference** | Version 12.1 |
-| **Final evaluation** | **100/100** |
-| **Project type** | Individual |
-
-<img src="docs/assets/42-evaluation.png" alt="42 ft_printf evaluation: 100/100" width="180">
-
-The original academic project received a **100/100** evaluation.
-
-The subject document supplied for this portfolio pass identifies itself as
-**ft_printf version 12.1**. Because subject revisions may evolve over time,
-v12.1 is recorded as the supplied documentary reference rather than asserted
-as an independently verified evaluation-day revision.
-
-The current `main` branch is a maintained portfolio edition. The immutable
-`portfolio-baseline-2026-09` tag preserves the repository state immediately
-before the structured professional modernization, while `v1.0.0` remains the
-first maintained portfolio release.
-
-See [Academic Project Context](docs/academic/README.md) for the detailed
-evaluation record, subject provenance, repository history, and AI usage notes.
 
 ## Overview
 

@@ -91,7 +91,7 @@ In particular, this implementation does not support:
 
 The implementation is intentionally small and divided by responsibility.
 
-### `ft_printf/ft_printf.c`
+### `src/ft_printf.c`
 
 Contains the public `ft_printf()` entry point.
 
@@ -104,7 +104,7 @@ It is responsible for:
 - maintaining the total number of written characters;
 - finalizing the variadic argument list.
 
-### `ft_printf/ft_printf_format.c`
+### `src/ft_printf_format.c`
 
 Contains the conversion dispatch logic.
 
@@ -118,7 +118,7 @@ It handles argument extraction and formatting for:
 - pointers;
 - literal percent signs.
 
-### `ft_printf/ft_printf_utils.c`
+### `src/ft_printf_utils.c`
 
 Contains the low-level output helpers used by the formatter:
 
@@ -126,12 +126,12 @@ Contains the low-level output helpers used by the formatter:
 - string output;
 - recursive decimal and hexadecimal number output.
 
-### `ft_printf/ft_printf.h`
+### `include/ft_printf.h`
 
 Contains the shared declarations used by the implementation and consumers of
 the library.
 
-### `ft_printf/Makefile`
+### `Makefile`
 
 Builds the implementation as the static library:
 
@@ -147,44 +147,50 @@ correctly invalidate dependent objects.
 ├── .github/
 │   └── workflows/
 │       └── ci.yml
-├── ft_printf/
+├── docs/
+│   ├── academic/
+│   │   └── README.md
+│   └── assets/
+│       └── 42-evaluation.png
+├── include/
+│   └── ft_printf.h
+├── src/
 │   ├── ft_printf.c
 │   ├── ft_printf_format.c
-│   ├── ft_printf_utils.c
-│   ├── ft_printf.h
-│   └── Makefile
-├── tester/
-│   ├── tests.c
-│   └── run_tests.sh
+│   └── ft_printf_utils.c
+├── tests/
+│   ├── run_tests.sh
+│   └── tests.c
 ├── .gitignore
 ├── Doxyfile
 ├── LICENSE
+├── Makefile
 └── README.md
 ```
 
-Generated object files, test executables, and static-library artefacts are not
-part of the maintained repository tree.
+Generated object files, test executables, static-library artefacts, and
+generated Doxygen HTML are not part of the maintained repository tree.
 
 ## Build
 
 From the repository root:
 
 ```sh
-make -C ft_printf
+make
 ```
 
 This produces:
 
 ```text
-ft_printf/libftprintf.a
+libftprintf.a
 ```
 
 The available cleanup targets are:
 
 ```sh
-make -C ft_printf clean
-make -C ft_printf fclean
-make -C ft_printf re
+make clean
+make fclean
+make re
 ```
 
 Their roles are:
@@ -214,8 +220,8 @@ After building the library:
 ```sh
 cc -Wall -Wextra -Werror \
   main.c \
-  -Ift_printf \
-  ft_printf/libftprintf.a \
+  -Iinclude \
+  libftprintf.a \
   -o example
 ```
 
@@ -230,7 +236,7 @@ Value: 42
 The canonical maintained validation interface is:
 
 ```sh
-./tester/run_tests.sh
+./tests/run_tests.sh
 ```
 
 The runner:
@@ -266,13 +272,13 @@ The runner uses the environment's default `cc` unless `CC` is supplied.
 Default compiler:
 
 ```sh
-./tester/run_tests.sh
+./tests/run_tests.sh
 ```
 
 Clang:
 
 ```sh
-CC=clang ./tester/run_tests.sh
+CC=clang ./tests/run_tests.sh
 ```
 
 Both compiler paths are part of the maintained validation workflow.
@@ -299,7 +305,7 @@ the GitHub-hosted environment.
 The workflow delegates project validation to:
 
 ```sh
-./tester/run_tests.sh
+./tests/run_tests.sh
 ```
 
 rather than duplicating build commands or regression cases in workflow YAML.
@@ -375,7 +381,7 @@ as universal requirements of standard `printf()`.
 
 ## Doxygen Documentation
 
-The maintained interface in `ft_printf/ft_printf.h` is documented using
+The maintained interface in `include/ft_printf.h` is documented using
 Doxygen-style comments.
 
 The documentation covers:

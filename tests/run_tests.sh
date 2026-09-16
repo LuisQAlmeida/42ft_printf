@@ -12,7 +12,8 @@ ROOT_DIR="$(
 	pwd
 )"
 
-LIB_DIR="$ROOT_DIR/ft_printf"
+LIB_DIR="$ROOT_DIR"
+INCLUDE_DIR="$ROOT_DIR/include"
 TEST_SOURCE="$SCRIPT_DIR/tests.c"
 TEST_BINARY="$SCRIPT_DIR/.ft_printf_tests"
 
@@ -36,7 +37,7 @@ make -C "$LIB_DIR" CC="$CC_BIN"
 printf '\n=== BUILD TESTER ===\n'
 "$CC_BIN" \
 	$CFLAGS \
-	-I"$LIB_DIR" \
+	-I"$INCLUDE_DIR" \
 	"$TEST_SOURCE" \
 	"$LIB_DIR/libftprintf.a" \
 	-o "$TEST_BINARY"
